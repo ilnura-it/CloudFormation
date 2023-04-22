@@ -5,6 +5,14 @@ Parameters:
     Type: AWS::EC2::KeyPair::KeyName
     Description: 'Name of an existing SSH KeyPair to access instance'
     Default: class_VM1
+  InstanceType:
+    Description: 'Allowed types of the instance'
+    Type: String
+    AllowedValues:
+      - t2.micro
+      - t3.micro
+      - t2.small
+      - t2.nano
 Resources:
   SSHSecurityGroup:
     Type: 'AWS::EC2::SecurityGroup'
