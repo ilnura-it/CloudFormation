@@ -1,3 +1,10 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: 'EC2 suites'
+Parameters:
+  KeyName: 
+    Type: AWS::EC2::KeyPair::KeyName
+    Description: 'Name of an existing SSH KeyPair to access instance'
+    Default: class_VM1
 Resources:
   SSHSecurityGroup:
     Type: 'AWS::EC2::SecurityGroup'
@@ -22,4 +29,11 @@ Resources:
         Value: "TestEC2_CF"
       SecurityGroups:
         - !Ref SSHSecurityGroup
-      KeyName: 'classVM1_kp'
+      KeyName: !Ref KeyName
+  S3Bucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      Tags:
+        - Key: Name
+          Value: ilya-bucket00001
+  
