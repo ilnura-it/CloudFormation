@@ -6,6 +6,7 @@ Parameters:
     Description: 'Name of an existing SSH KeyPair to access instance'
   InstanceType:
     Description: 'Allowed types of the instance'
+    Default: t2.micro
     Type: String
     AllowedValues:
       - t2.micro

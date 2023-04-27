@@ -1,0 +1,17 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: 'VPC'
+Parameters:
+  KeyName:
+    Type: AWS::EC2::KeyPair::KeyName
+    Description: 'Name of an existing SSH KeyPair to access instance'
+    Default: classVM1_kp
+Resources:
+  Type: 'AWS::EC2::Instance'
+  Properties:
+    ImageId: 'ami-02396cdd13e9a1257'
+    InstanceType: t2.micro
+    KeyName: !Ref KeyName
+    Tags:
+        - Key: 'Name'
+          Value: 'Test_user_data'
+    SecurityGroups: !Ref 

@@ -1,0 +1,59 @@
+Resources:
+  SSHSecGroup:
+    Type: 'AWS::EC2::SecurityGroup'
+    Properties:
+      GroupDescription: Enable SSH access via port 22
+      GroupName: SSHSG
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: '22'
+          ToPort: '22'
+          CidrIp: 68.145.169.199/32
+      Tags: 
+        - Key: Name
+          Value: SSHSecurityGroup
+  
+  EC2Instance1:
+    Type: 'AWS::EC2::Instance'
+    Properties: 
+      InstanceType: "t2.micro"
+      ImageId: ami-007855ac798b5175e
+      SecurityGroups:
+        - !Ref SSHSecGroup
+      KeyName: classVM1_kp
+      Tags:
+        - Key: Name
+          Value: VM1
+
+  EC2Instance2:
+    Type: 'AWS::EC2::Instance'
+    Properties: 
+      InstanceType: "t2.micro"
+      ImageId: ami-007855ac798b5175e
+      SecurityGroups:
+        - !Ref SSHSecGroup
+      KeyName: classVM1_kp
+      Tags:
+        - Key: Name
+          Value: VM2
+  
+      
+  EC2Instance3:
+    Type: 'AWS::EC2::Instance'
+    Properties: 
+      InstanceType: "t2.micro"
+      ImageId: ami-007855ac798b5175e
+      SecurityGroups:
+        - !Ref SSHSecGroup
+      KeyName: classVM1_kp
+      Tags:
+        - Key: Name
+          Value: VM3
+
+[servers]
+vm1 ansible_host=3.84.43.173
+vm2 ansible_host=44.204.176.228
+vm3 ansible_host=3.85.162.232
+
+[all:vars]
+ansible_python_interpreter=/usr/bin/python3
