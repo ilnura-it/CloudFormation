@@ -1,0 +1,74 @@
+  1  whoami
+    2  hostname
+    3  ls
+    4  sudo apt-add-repository ppa:ansible/ansible
+    5  sudo apt update
+    6  sudo apt install ansible
+    7  ansible --version
+    8  sudo vim /etc/ansible/hosts
+    9  ansible-inventory --list-y
+   10  sudo vim /etc/ansible/hosts
+   11  ansible-inventory --list-y
+   12  ansible-inventory --list -y
+   13  ssh-keygen -t rsa
+   14  cd ~/.ssh/
+   15  ls
+   16  cat id_rsa.pub
+   17  ls
+   18  cd
+   19  ls
+   20  cd ~/.ssh/
+   21  cat authorized_keys
+   22  ssh -i ./authorized_keys ubuntu@3.85.162.232
+   23  ansible all -i /etc/ansible/hosts
+   24  ansible --version
+   25  ssh ubuntu@3.89.125.4
+   26  vim key.pem
+   27  chmod 400 key.pem
+   28  ssh ubuntu@3.89.125.4
+   29  ssh -i key.pem ubuntu@3.89.125.4
+   30  cd /etc/ansible/
+   31  ls
+   32  sudo vim hosts
+   33  ls
+   34  ansible all -i /etc/ansible/hosts -a "uptime"
+   35  cd ~/.ssh
+   36  ls
+   37  cat id_rsa.pub
+   38  cd /etc/ansible/
+   39  ansible all -i /etc/ansible/hosts -a "uptime"
+   40  ssh ubuntu@3.83.249.55
+   41  ansible all -i /etc/ansible/hosts -a "uptime"
+   42  python3 --version
+   43  cat hosts
+   44  sudo vim hosts
+   45  ansible all -i /etc/ansible/hosts -a "uptime"
+   46  ansible all -a "df -h" -u ubuntu
+   47  ansible all -m ping
+   48  ansible servers -a "uptime"
+   49  ansible -a "cat /etc/os-release"
+   50  ansible servers -a "cat /etc/os-release"
+   51  ls
+   52  mkdir inventory playbooks
+   53  sudo mkdir inventory playbooks
+   54  ls
+   55  cd inventory/
+   56  sudo vim staging
+   57  cat staging
+   58  cd ..
+   59  cd playbooks/
+   60  ls
+   61  sudo vim apache2.yml
+   62  cat apache2.yml
+   63  ansible-playbook -i /etc/ansible/inventory/staging /etc/ansible/playbooks/apache2.yml
+   64  sudo vim apache2_start.yml
+   65  ansible-playbook -i /etc/ansible/inventory/staging /etc/ansible/playbooks/apache2.yml
+   66  sudo vim ilovevim.yml
+   67  ansible-playbook -i /etc/ansible/inventory/staging /etc/ansible/playbooks/ilovevim.yml
+   68  cat ilovevim.yml
+   69  sudo mysql.yml
+   70  sudo vim mysql.yml
+   71  ansible-playbook -i /etc/ansible/inventory/staging /etc/ansible/playbooks/mysql.yml
+   72  cat mysql.yml
+   73  ansible webservers -m ping
+   74  ansible all -m ping
